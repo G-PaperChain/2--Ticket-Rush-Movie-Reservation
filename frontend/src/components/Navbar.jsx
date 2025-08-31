@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { VscAccount } from "react-icons/vsc";
-import AuthDropdown from './AuthDropdown';
+import LoginDropdown from './LoginDropdown';
+import SignupDropdown from './SignupDropdown'
 
 const Navbar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -31,8 +32,8 @@ const Navbar = () => {
                 </div>
             </div>
             
-            {/* Pass both open state and close function */}
-            <AuthDropdown open={isDropdownOpen} onClose={closeDropdown} />
+            <LoginDropdown open={isDropdownOpen} onClose={closeDropdown} />
+            <SignupDropdown open={isDropdownOpen} onClose={closeDropdown} />
         </>
     )
 }
