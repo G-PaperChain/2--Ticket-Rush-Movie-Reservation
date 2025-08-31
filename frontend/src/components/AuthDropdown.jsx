@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IoTriangle } from "react-icons/io5";
 
 
-const Authmodal = () => {
+
+const AuthDropdown = (props) => {
     return (
         <>
-            <div className="flex flex-col justify-center px-6 py-6 fixed bg-black rounded-3xl right-64 top-16">
+            <div className={`flex flex-col justify-center px-6 py-6 fixed bg-black rounded-3xl right-64 top-16
+            transition-all duration-300 ease-in-out origin-top
+                ${props.open ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}  >
                 <IoTriangle className='fixed top-13 right-79' />
-
 
                 <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Sign in to your account</h2>
 
@@ -74,4 +76,4 @@ const Authmodal = () => {
     )
 }
 
-export default Authmodal
+export default AuthDropdown
