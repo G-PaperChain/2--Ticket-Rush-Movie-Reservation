@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import { VscAccount } from "react-icons/vsc";
-import AuthDropdown from './AuthDropdown'; // Fixed import name
+import AuthDropdown from './AuthDropdown';
 
 const Navbar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const closeDropdown = () => {
+        setIsDropdownOpen(false);
     };
 
     return (
@@ -27,8 +31,8 @@ const Navbar = () => {
                 </div>
             </div>
             
-            {/* Only render dropdown when open */}
-            {isDropdownOpen && <AuthDropdown open={isDropdownOpen} />}
+            {/* Pass both open state and close function */}
+            <AuthDropdown open={isDropdownOpen} onClose={closeDropdown} />
         </>
     )
 }

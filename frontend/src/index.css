@@ -5,3 +5,7 @@ body {
   background-color: #110F0F;
   font-family: "Roboto";
 }
+
+@theme {
+      --color-custom-black: #110F0F; /* Example with hex */
+}
