@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useContext } from 'react'
 import { IoTriangle } from "react-icons/io5";
 
-const LoginDropdown = ({ open, onClose }) => {
+const LoginDropdown = ({ open, onClose, onSwitchToSignup  }) => {
     const dropdownRef = useRef(null)
     const [isAnimating, setIsAnimating] = useState(false)
 
@@ -111,7 +111,7 @@ const LoginDropdown = ({ open, onClose }) => {
                     Not a member?{' '}
                     <button 
                         className="font-semibold text-red-400 hover:text-red-300 transition-colors duration-200 hover:underline cursor-pointer bg-transparent border-none p-0" 
-                        
+                        onClick={onSwitchToSignup}
                     >
                         Create an Account
                     </button>

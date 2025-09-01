@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { IoTriangle } from "react-icons/io5";
 
-const AuthDropdown = ({ open, onClose }) => {
+const AuthDropdown = ({ open, onClose, onSwitchToLogin }) => {
     const dropdownRef = useRef(null)
     const [isAnimating, setIsAnimating] = useState(false)
 
@@ -125,7 +125,9 @@ const AuthDropdown = ({ open, onClose }) => {
                     Already a member?{' '}
                     <button
                         className="font-semibold text-red-400 hover:text-red-300 transition-colors duration-200 hover:underline cursor-pointer bg-transparent border-none p-0"
-                        onClick={() => createAccount()}
+                        onClick={onSwitchToLogin}
+
+
                     >
                         Sign in instead
                     </button>

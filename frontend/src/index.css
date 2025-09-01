@@ -7,5 +7,35 @@ body {
 }
 
 @theme {
-      --color-custom-black: #110F0F; /* Example with hex */
+  --color-custom-black: #110F0F;
+  /* Example with hex */
+  --color-custom-border: #1E2939;
+}
+
+.sidebar {
+  border-right: 1px solid #1E2939;
+}
+
+
+#search:focus {
+  outline: none;
+  box-shadow: none;
+  background-color: #1E2939;
+}
+
+
+#search {
+  border: 2px solid #1E2939;
+  transition: all 0.2s;
+}
+
+.nav-el {
+  transition: all 0.3s;
+  width: 200px;
+  user-select: none;
+}
+
+.nav-el:hover {
+  background-color: #1E2939;
+  border-radius: 12px;
 }
