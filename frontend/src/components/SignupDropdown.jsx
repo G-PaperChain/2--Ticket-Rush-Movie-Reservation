@@ -1,54 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { IoTriangle } from "react-icons/io5";
 
-const AuthDropdown = ({ open, onClose, onSwitchToLogin }) => {
-    const dropdownRef = useRef(null)
-    const [isAnimating, setIsAnimating] = useState(false)
-
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                onClose();
-            }
-        };
-
-        const handleEscapeKey = (event) => {
-            if (event.key === 'Escape') {
-                onClose();
-            }
-        };
-
-        if (open) {
-            setIsAnimating(true);
-            const timer = setTimeout(() => {
-                document.addEventListener('mousedown', handleClickOutside);
-                document.addEventListener('keydown', handleEscapeKey);
-            }, 100);
-
-            return () => {
-                clearTimeout(timer);
-                document.removeEventListener('mousedown', handleClickOutside);
-                document.removeEventListener('keydown', handleEscapeKey);
-            };
-        } else {
-            setIsAnimating(false);
-        }
-    }, [open, onClose]);
-
-    if (!open) return null;
-
+const AuthDropdown = (props) => {
 
     return (
         <div
-            ref={dropdownRef}
             className={`flex flex-col justify-center px-6 py-6 fixed bg-custom-black rounded-3xl right-16 top-16 z-50
             shadow-2xl border border-gray-800 w-80
-            transition-all duration-300 ease-out origin-top-right transform
-            ${isAnimating
-                    ? 'opacity-100 scale-100 translate-y-0'
-                    : 'opacity-0 scale-100 -translate-y-2'
-                }`}
-        >
+            transition-all duration-300 ease-out origin-top-right transform`}>
             <h2 className="mt-2 text-center text-xl font-bold tracking-tight text-white">
                 Create an Account
             </h2>
@@ -122,11 +81,10 @@ const AuthDropdown = ({ open, onClose, onSwitchToLogin }) => {
                 </form>
 
                 <p className="mt-5 text-center text-sm text-gray-400">
-                    Already a member?{' '}
+                    Already a member?
                     <button
                         className="font-semibold text-red-400 hover:text-red-300 transition-colors duration-200 hover:underline cursor-pointer bg-transparent border-none p-0"
-                        onClick={onSwitchToLogin}
-
+                        onClick={() => props.inverseDropdownshow()}
 
                     >
                         Sign in instead
